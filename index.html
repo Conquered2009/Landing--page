@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>embedsocial</title>
+</head>
+ <!-- Header Section -->
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-2xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                
+                <!-- Left Side: Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer">
+                    <!-- Icon Box -->
+                    <div class="bg-black text-white p-1 rounded-md flex items-center justify-center w-7 h-7">
+                        <img src="./images/Images/logo.png" alt="">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
+                        </svg>
+                    </div>
+                    <!-- Brand Name -->
+                    <span class="font-bold text-gray-900 text-lg tracking-tight">embedsocial</span>
+                </div>
+
+                <!-- Center: Navigation (Hidden on Mobile) -->
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <!-- Dropdown Item -->
+                    <div class="relative group">
+                        <button class="text-gray-600 hover:text-gray-900 font-medium text-sm flex items-center gap-1 focus:outline-none">
+                            Platform
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 text-gray-400 group-hover:text-gray-600 transition-transform duration-200 group-hover:rotate-180">
+                                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <a href="#" class="text-gray-600 hover:text-gray-900 font-medium text-sm">Widgets</a>
+                    <a href="#" class="text-gray-600 hover:text-gray-900 font-medium text-sm">Templates</a>
+                    <a href="#" class="text-gray-600 hover:text-gray-900 font-medium text-sm">Pricing</a>
+                </nav>
+
+                <!-- Right Side: Actions (Hidden on Mobile) -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="#" class="text-gray-600 hover:text-gray-900 font-medium text-sm">
+                        Login
+                    </a>
+                    <a href="#" class="bg-[#0066FF] hover:bg-blue-700 text-white px-5 py-2 rounded-md text-sm font-semibold transition duration-200 shadow-sm">
+                        Start Free Trial
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button (Visible on Mobile) -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-gray-900 focus:outline-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full left-0 top-16 shadow-lg">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md">Platform</a>
+                <a href="#" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md">Widgets</a>
+                <a href="#" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md">Templates</a>
+                <a href="#" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md">Pricing</a>
+                <div class="border-t border-gray-100 my-2 pt-2">
+                    <a href="#" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md">Login</a>
+                    <a href="#" class="block w-full text-center mt-2 bg-[#0066FF] hover:bg-blue-700 text-white px-4 py-2 rounded-md text-base font-medium">Start Free Trial</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+<body class="bg-white text-gray-900">
+     <section class="relative pt-16 pb-12 overflow-hidden bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Main Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- Left Column: Content -->
+                <div class="max-w-2xl">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight mb-6">
+                        Display Instagram Stories on any website, 
+                        <span class="bg-[#FFEB3B] px-1 inline-block transform -rotate-1">in seconds.</span>
+                    </h1>
+                    
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        Display Instagram Stories Widget on your website, that auto-syncs, and updates each time you add a photo in your active story.
+                    </p>
+
+                    <!-- Form -->
+                    <div class="flex flex-col sm:flex-row gap-3 max-w-md mb-4">
+                        <input type="email" placeholder="Enter your email..." class="flex-1 appearance-none border border-gray-300 rounded-md py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-sm">
+                        <button class="bg-[#0066FF] hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-md transition duration-200 flex items-center justify-center whitespace-nowrap shadow-md">
+                            Start Free Trial
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Trust Text -->
+                    <div class="font-black text-gray-500 flex items-center gap-2">
+                        <span>Free 7-day trial</span>
+                        <span class="w-1 h-1 bg-gray-400 rounded-full"></span>
+                        <span>Easy setup</span>
+                        <span class="w-1 h-1 bg-gray-400 rounded-full"></span>
+                        <span>Cancel any time</span>
+                    </div>
+                </div>
+
+                <!-- Right Column: Visuals (The tricky part) -->
+                <div class="relative mt-10 lg:mt-0 flex justify-center lg:justify-end">
+                    
+                    <!-- Floating Instagram Icon (Absolute Positioned) -->
+                    <div class="absolute bottom-20 -left-6 z-20 bg-white p-3 rounded-2xl shadow-xl hidden sm:block">
+                        <div class="w-12 h-12 rounded-xl insta-gradient flex items-center justify-center text-white">
+                            <img class="ml-54" src="./images/Images/instagram.png" alt="">
+                            <svg class="ml-54" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4 items-center">
+                        <!-- Main Story Card -->
+                        <div class="relative w-64 md:w-72 h-[450px] bg-gray-100 rounded-3xl overflow-hidden shadow-2xl flex-shrink-0 border-4 border-white">
+                            <!-- Story Progress Bar -->
+                            <div class="absolute top-4 left-0 w-full px-3 flex gap-1 z-20">
+                                <div class="h-1 bg-white/80 flex-1 rounded-full"></div>
+                                <div class="h-1 bg-white/40 flex-1 rounded-full"></div>
+                            </div>
+                            
+                            <!-- Profile Bubble -->
+                            <div class="absolute top-0 left-1/2 transform -translate-x-1/2 bg-white/90 backdrop-blur-sm px-3 m py-2 rounded-full z-20 flex items-center gap-2 shadow-sm text-xs font-semibold w-[90%]">
+                                <img src="./images/Images/status.png" alt="profile">
+                                <div class="flex flex-col leading-none">
+                                    <span class="text-gray-900 mb-2 text-[16.13px] font-bold">escommerce</span>
+                                    <span class="text-[10px] text-gray-500 font-normal flex gap-1">1h ago <img src="" alt=""> <img src="./images/Images/status.png" alt=""> by EmbedSocial</span>
+                                </div>
+                            </div>
+
+                            <!-- Main Image -->
+                            <img src="./images/Images/lady.png" class="w-full h-full object-cover" alt="Woman in yellow">
+                        </div>
+
+                        <!-- Side Column (Smaller cards) -->
+                        <div class="flex flex-col gap-4 hidden md:flex">
+                            <!-- Top Card -->
+                            <div class="w-40 h-52 bg-green-100 rounded-2xl overflow-hidden shadow-lg border-2 border-white relative">
+                                <div class="absolute top-2 left-2 w-6 h-6 rounded-full flex items-center justify-center text-white text-[10px]">
+                                    <img src="./assets/Group 898.png" class="w-full h-full rounded-full opacity-80" alt="sm-profile">
+                                </div>
+                                <img src="./images/Images/pumpkin.png" class="w-full h-full object-cover" alt="Pumpkin">
+                            </div>
+                            <!-- Bottom Card -->
+                            <div class="w-40 h-52 bg-green-100 rounded-2xl overflow-hidden shadow-lg border-2 border-white relative">
+                                <div class="absolute top-2 left-2 w-6 h-6 p-0.5">
+                                </div>
+                                <img src="./images/Images/Avocado.png" class="w-full h-full object-cover" alt="Avocados">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trusted By Section -->
+            <div class="mt-20 border-t border-gray-100 pt-10">
+                <p class="text-center text-xs font-bold text-gray-400 uppercase tracking-widest mb-6">
+                    Join 50,000+ websites that use EmbedSocial to sell more
+                </p>
+                <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
+                    <!-- CNN Logo Placeholder -->
+                    <span class="text-2xl font-black text-gray-800"><img src="./assets/cnn.svg" alt=""></span>
+                    
+                    <!-- National Geographic Placeholder -->
+                    <div class="flex items-center gap-1 font-serif text-sm font-bold border-l-4 border-yellow-400 pl-1 leading-none">
+                        <img src="./assets/netgeo.svg" alt="">
+                    </div>
+
+                    <!-- Florence Placeholder -->
+                    <span class="text-xl font-serif italic text-gray-800"><img src="./assets/florencebymills-logo 1.png" alt=""></span>
+
+                    <!-- Ancestry Placeholder -->
+                    <span class="text-xl font-serif text-gray-800"><img src="./assets/ancestry-logo 1.png" alt=""></span>
+                   
+                    <!-- Industrious Placeholder -->
+                    <span class="text-xl font-serif text-gray-800"><img src="./assets/industrious 1.png" alt=""></span>
+
+                    <!-- Nike Placeholder -->
+                     <span class="text-xl font-serif text-gray-800"><img src="./assets/nike.svg" alt=""></span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto w-full bg-white-100">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            
+            <!-- LEFT COLUMN: Browser Mockup -->
+            <div class="lg:col-span-8 order-2 lg:order-1">
+                <div class="bg-white rounded-xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.3)] border border-gray-100 overflow-hidden transform transition-transform hover:scale-[1.01] duration-500">
+                    
+                    <!-- Browser Window Header -->
+                    <div class="bg-[#1A1A1A] px-4 py-3 flex items-center gap-2">
+                        <div class="w-2.5 h-2.5 rounded-full bg-white"></div>
+                        <div class="w-2.5 h-2.5 rounded-full bg-white"></div>
+                        <div class="w-2.5 h-2.5 rounded-full bg-white"></div>
+                    </div>
+
+                    <!-- Mockup Content Area -->
+                    <div class="p-6 md:p-8 bg-white relative">
+                        
+                        <!-- Pseudo-Hero Section with Fruits -->
+                        <div class="relative flex flex-col items-center justify-center mb-10 h-48">
+                            <!-- Floating Fruits (Absolute) -->
+                            <img src="./assets/watermelon.png" class="absolute top-0 left-0 w-24 md:w-32 transform -rotate-12 opacity-90" alt="Watermelon">
+                            <img src="https://images.unsplash.com/photo-1591796079433-7f41b45eb95c?auto=format&fit=crop&w=100&q=80" class="absolute top-2 right-10 w-16 md:w-20 rounded-full opacity-90" alt="Kiwi">
+                            <img src="https://images.unsplash.com/photo-1615485925763-867862f8021a?auto=format&fit=crop&w=100&q=80" class="absolute bottom-0 right-0 w-20 md:w-24 transform rotate-12 opacity-90" alt="Lemon">
+                            
+                            <!-- Hero Text -->
+                            <div class="text-center z-10 bg-white/80 backdrop-blur-sm p-4 rounded-xl">
+                                <p class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-1">Foodie</p>
+                                <h2 class="text-2xl md:text-3xl font-black text-gray-900 mb-2">Try the best recipes</h2>
+                                <p class="text-xs text-gray-500">Easy recipes and cooking hacks</p>
+                                <button class="mt-4 bg-black text-white text-xs font-bold py-2 px-4 rounded-full">View all recipes</button>
+                            </div>
+                        </div>
+
+                        <!-- Widget Header -->
+                        <div class="flex justify-between items-end mb-4 border-b border-gray-100 pb-2">
+                            <h3 class="font-bold text-gray-800 text-sm">Trending Recipes</h3>
+                            <span class="text-[10px] font-bold bg-black text-white px-1.5 py-0.5 rounded"># Stories</span>
+                        </div>
+
+                        <!-- The Carousel Grid -->
+                        <div class="flex gap-3 overflow-x-auto no-scrollbar pb-2">
+                            
+                            <!-- Card 1 -->
+                            <div class="relative flex-shrink-0 w-28 h-44 md:w-32 md:h-48 rounded-lg overflow-hidden group cursor-pointer">
+                                <img src="./assets/Frame 951.png" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Pizza">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                                <div class="absolute bottom-2 left-2 flex items-center gap-1 text-white">
+                                    <span class="text-[10px] font-bold">18 sec</span>
+                                </div>
+                            </div>
+
+                            <!-- Card 2 -->
+                            <div class="relative flex-shrink-0 w-28 h-44 md:w-32 md:h-48 rounded-lg overflow-hidden group cursor-pointer">
+                                <img src="./assets/Frame 948.png" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Pumpkin">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                                <div class="absolute bottom-2 left-2 flex items-center gap-1 text-white">
+                                    <span class="text-[10px] font-bold">22 sec</span>
+                                </div>
+                            </div>
+
+                            <!-- Card 3 -->
+                            <div class="relative flex-shrink-0 w-28 h-44 md:w-32 md:h-48 rounded-lg overflow-hidden group cursor-pointer">
+                                <img src="./assets/Frame 949 (1).png" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Avocado">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                                <div class="absolute bottom-2 left-2 flex items-center gap-1 text-white">
+                                    <span class="text-[10px] font-bold">1m</span>
+                                </div>
+                            </div>
+
+                            <!-- Card 4 -->
+                            <div class="relative flex-shrink-0 w-28 h-44 md:w-32 md:h-48 rounded-lg overflow-hidden group cursor-pointer">
+                                <img src="./assets/Frame 950.png" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Chips">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                                <div class="absolute bottom-2 left-2 flex items-center gap-1 text-white">
+                                    <span class="text-[10px] font-bold">45 sec</span>
+                                </div>
+                            </div>
+
+                             <!-- Card 5 -->
+                             <div class="relative flex-shrink-0 w-28 h-44 md:w-32 md:h-48 rounded-lg overflow-hidden group cursor-pointer">
+                                <img src="./assets/Frame 952.png" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Ramen">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                                <div class="absolute bottom-2 left-2 flex items-center gap-1 text-white">
+                                    <span class="text-[10px] font-bold">12 sec</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: Navigation Menu -->
+            <div class="lg:col-span-4 order-1 lg:order-2">
+                <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-8 leading-tight">
+                    Widgets for <br> every website.
+                </h1>
+
+                <div class="space-y-2">
+                    <!-- Option 1: Highlights -->
+                    <div class="group flex items-center gap-4 p-3 rounded-lg text-gray-400 hover:text-gray-600 hover:bg-gray-50 transition-colors cursor-pointer">
+                        <img src="./assets/Frame 1586.png" class="w-6" alt="">
+                        <span class="font-medium text-lg">Highlights</span>
+                    </div>
+
+                    <!-- Option 2: Popover -->
+                    <div class="group flex items-center gap-4 p-3 rounded-lg text-gray-400 hover:text-gray-600 hover:bg-gray-50 transition-colors cursor-pointer">
+                      <img src="./assets/Frame 1586 (1).png" class="w-6" alt="">
+                        <span class="font-medium text-lg">Popover</span>
+                    </div>
+
+                    <!-- Option 3: Inline slideshow -->
+                    <div class="group flex items-center gap-4 p-3 rounded-lg text-gray-400 hover:text-gray-600 hover:bg-gray-50 transition-colors cursor-pointer">
+                   <img src="./assets/Frame 1587.png" class="w-6" alt="">
+                        <span class="font-medium text-lg">Inline slideshow</span>
+                    </div>
+
+                    <!-- Option 4: Story list gallery -->
+                    <div class="group flex items-center gap-4 p-3 rounded-lg text-gray-400 hover:text-gray-600 hover:bg-gray-50 transition-colors cursor-pointer">
+                        <img src="./assets/Frame 1586 (2).png" class="w-6" alt="">
+                        <span class="font-medium text-lg">Story list gallery</span>
+                    </div>
+
+                    <!-- Option 5: Carousel gallery (ACTIVE) -->
+                    <div class="group flex items-center gap-4 p-4 rounded-lg bg-[#F0F5FF] text-[#0066FF] transition-colors cursor-pointer shadow-sm">
+                        <div class="bg-[#0066FF] text-white p-1 rounded">
+                          <img src="./assets/Frame 1587 (1).png" class="w-6" alt="">
+                        </div>
+                        <span class="font-bold text-lg">Carousel gallery</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+     <section class="py-16 md:py-24 px-4 sm:px-6 bg-gray-100 mt-36">
+        <div class="max-w-7xl mx-auto">
+            
+            <!-- Header Text -->
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight text-gray-900 mb-6">
+                    Let your story live <span class="bg-[#FFEB3B] px-2 transform -rotate-1">more than 24h.</span>
+                </h2>
+                <p class="text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
+                    You've worked hard to create a beautiful Instagram story but it disappears in 24 hours? 
+                    No worries, use our story saver for Instagram to bring them to life on your website.
+                </p>
+            </div>
+
+            <!-- Cards Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6 ">
+                
+                <!-- Instagram Card -->
+                <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col items-center text-center gap-4 cursor-default border border-gray-100">
+                    <div class="w-12 h-12 flex items-center justify-center">
+                        <!-- Instagram Gradient Icon -->
+                        <svg viewBox="0 0 24 24" class="w-10 h-10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="insta-grad" x1="2" y1="22" x2="22" y2="2" gradientUnits="userSpaceOnUse">
+                                    <stop offset="0" stop-color="#FFC107"/>
+                                    <stop offset="0.5" stop-color="#F44336"/>
+                                    <stop offset="1" stop-color="#9C27B0"/>
+                                </linearGradient>
+                            </defs>
+                            <rect x="2" y="2" width="20" height="20" rx="5" stroke="url(#insta-grad)" stroke-width="2"/>
+                            <circle cx="12" cy="12" r="4" stroke="url(#insta-grad)" stroke-width="2"/>
+                            <circle cx="17.5" cy="6.5" r="1" fill="url(#insta-grad)"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-gray-800 text-sm leading-tight">
+                        Auto-Sync<br>Instagram Stories
+                    </h3>
+                </div>
+
+                <!-- Facebook Card -->
+                <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col items-center text-center gap-4 cursor-default border border-gray-100">
+                    <div class="w-12 h-12 flex items-center justify-center">
+                        <svg class="w-10 h-10 text-[#1877F2]" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-gray-800 text-sm leading-tight">
+                        Upload<br>Facebook Stories
+                    </h3>
+                </div>
+
+                <!-- TikTok Card -->
+                <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col items-center text-center gap-4 cursor-default border border-gray-100">
+                    <div class="w-12 h-12 flex items-center justify-center">
+                        <svg class="w-10 h-10 text-black" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-gray-800 text-sm leading-tight">
+                        Sync<br>TikTok Stories
+                    </h3>
+                </div>
+
+                <!-- Twitter Card -->
+                <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col items-center text-center gap-4 cursor-default border border-gray-100">
+                    <div class="w-12 h-12 flex items-center justify-center">
+                        <svg class="w-10 h-10 text-[#1DA1F2]" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-gray-800 text-sm leading-tight">
+                        Upload<br>Twitter Fleets
+                    </h3>
+                </div>
+
+                <!-- LinkedIn Card -->
+                <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col items-center text-center gap-4 cursor-default border border-gray-100">
+                    <div class="w-12 h-12 flex items-center justify-center">
+                        <svg class="w-10 h-10 text-[#0A66C2]" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-gray-800 text-sm leading-tight">
+                        Upload<br>LinkedIn Stories
+                    </h3>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+     <section class="py-16 md:py-24 px-4 sm:px-6">
+        <div class="max-w-7xl mx-auto">
+            
+            <!-- 1. Main Headline -->
+            <div class="text-center max-w-4xl mx-auto mb-16 md:mb-20">
+                <h2 class="text-3xl md:text-5xl font-black tracking-tight text-gray-900 leading-tight">
+                    Double your <span class="bg-[#FFEB3B] px-1">conversions.</span><br class="hidden md:block">
+                    Double your <span class="bg-[#FFEB3B] px-1">growth.</span>
+                </h2>
+            </div>
+
+            <!-- 2. Features Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24">
+                
+                <!-- Card 1: Brands -->
+                <div class="bg-[#F2F4F8] rounded-xl p-8 hover:bg-[#EEF1F6] transition-colors duration-300">
+                    <h3 class="text-[32px] font-bold text-gray-900 mb-6">Brands</h3>
+                    
+                    <div class="flex items-center gap-2 mb-3">
+                        <!-- Chart Icon -->
+                        <img src="./assets/Vector (2).png" alt="">
+                        <span class="font-bold text-gray-900 text-[24px]">Increases conversions</span>
+                    </div>
+                    
+                    <p class="text-[18px] text-gray-600 leading-relaxed">
+                        Enhance the visual showcase of your products with unique content, making visitors convert to buyers.
+                    </p>
+                </div>
+
+                <!-- Card 2: Marketers -->
+                <div class="bg-[#F2F4F8] rounded-xl p-8 hover:bg-[#EEF1F6] transition-colors duration-300">
+                    <h3 class="text-[32px] font-bold text-gray-900 mb-6">Marketers</h3>
+                    
+                    <div class="flex items-center gap-2 mb-3">
+                        <!-- Clock Icon -->
+                        <img src="./assets/clock.png" alt="">
+                        <span class="font-bold text-gray-900 text-[24px]">Save time</span>
+                    </div>
+                    
+                    <p class="text-[18px] text-gray-600 leading-relaxed">
+                        No more re-purposing, re-cropping or re-uploading the same content from your Instagram stories to your website.
+                    </p>
+                </div>
+
+                <!-- Card 3: Web Designers -->
+                <div class="bg-[#F2F4F8] rounded-xl p-8 hover:bg-[#EEF1F6] transition-colors duration-300">
+                    <h3 class="text-[32px] font-bold text-gray-900 mb-6">Web designers</h3>
+                    
+                    <div class="flex items-center gap-2 mb-3">
+                        <!-- Refresh/Content Icon -->
+                        <img src="./assets/Vector (3).png" alt="">
+                        <span class="font-bold text-gray-900 text-[24px]">Fresh content</span>
+                    </div>
+                    
+                    <p class="text-[18px] text-gray-600 leading-relaxed">
+                        Every story you post on Instagram, it is automatically saved in your account. Auto updates you unique content.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- 3. Testimonial Section -->
+            <div class="max-w-2xl mx-auto text-center">
+                <!-- Logo -->
+                <div class="font-serif-logo text-3xl font-bold text-gray-900 mb-6">
+                    Clovin
+                </div>
+                
+                <!-- Quote -->
+                <blockquote class="text-gray-600 mb-8 leading-relaxed text-sm md:text-base">
+                    "Storytelling on another level. EmbedStories is great - it takes pride of place on our homepage aggregating stories from our Instagram account. I highly recommend this product."
+                </blockquote>
+
+                <!-- Author Profile -->
+                <div class="flex items-center justify-center gap-2">
+                    <img src="./assets/Rectangle 192.png" 
+                         alt="Ben Callahan" 
+                         class="w-16 h-15 object-cover grayscale">
+                    
+                    <div class="text-xs font-bold text-gray-900">
+                        Ben Callahan, <span class="font-normal text-gray-500">COO at Clovin</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="py-20 md:py-28 px-4 sm:px-6">
+        <div class="max-w-7xl mx-auto">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold tracking-tight text-white mb-6">
+                    Get started with one<br>of our templates
+                </h2>
+                <p class="text-gray-400 text-sm md:text-base leading-relaxed max-w-xl mx-auto mb-8">
+                    Start with one of our pre-designed templates. Create, personalize and embed the perfect widget for any page or campaign in just minutes.
+                </p>
+                
+                <a href="#" class="inline-flex items-center justify-center bg-[#0066FF] hover:bg-blue-600 text-white font-semibold text-sm py-3 px-6 rounded-md transition-colors duration-200">
+                    See templates demos
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Cards Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Card 1: Popover -->
+                <div class="bg-white rounded-xl p-2 h-full flex flex-col group hover:scale-[1.02] transition-transform duration-300 cursor-pointer">
+                    <!-- Visual Area -->
+                    <div class="bg-gray-100 h-40 rounded-lg relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover opacity-50" alt="Background">
+                        <!-- Popover UI -->
+                        <div class="absolute bottom-4 left-4 right-4 bg-white rounded-full p-2 flex items-center gap-3 shadow-lg animate-bounce-slow">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=50&q=80" class="w-8 h-8 rounded-full border border-pink-500 p-0.5">
+                            <div class="flex-1">
+                                <div class="h-1.5 w-16 bg-gray-800 rounded mb-1"></div>
+                                <div class="h-1 w-10 bg-gray-300 rounded"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Content -->
+                    <div class="p-4 pt-6 mt-auto">
+                        <h3 class="text-gray-900 font-bold text-lg mb-2">Popover</h3>
+                        <p class="text-gray-500 text-sm leading-snug">Showcases on every page that gives the feel of a living & breathing website.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2: Highlights -->
+                <div class="bg-white rounded-xl p-2 h-full flex flex-col group hover:scale-[1.02] transition-transform duration-300 cursor-pointer">
+                    <!-- Visual Area -->
+                    <div class="bg-gray-50 h-40 rounded-lg flex items-center justify-center gap-3 px-2 overflow-hidden">
+                        <!-- Circle 1 -->
+                        <div class="flex flex-col items-center gap-1">
+                            <div class="w-12 h-12 rounded-full p-[2px] bg-gradient-to-tr from-yellow-400 to-purple-600">
+                                <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=100&q=80" class="w-full h-full rounded-full border-2 border-white object-cover">
+                            </div>
+                            <div class="h-1 w-8 bg-gray-300 rounded"></div>
+                        </div>
+                        <!-- Circle 2 -->
+                        <div class="flex flex-col items-center gap-1">
+                            <div class="w-12 h-12 rounded-full p-[2px] bg-gradient-to-tr from-yellow-400 to-purple-600">
+                                <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=100&q=80" class="w-full h-full rounded-full border-2 border-white object-cover">
+                            </div>
+                            <div class="h-1 w-8 bg-gray-300 rounded"></div>
+                        </div>
+                        <!-- Circle 3 -->
+                        <div class="flex flex-col items-center gap-1">
+                            <div class="w-12 h-12 rounded-full p-[2px] bg-gradient-to-tr from-yellow-400 to-purple-600">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80" class="w-full h-full rounded-full border-2 border-white object-cover">
+                            </div>
+                            <div class="h-1 w-8 bg-gray-300 rounded"></div>
+                        </div>
+                    </div>
+                    <!-- Content -->
+                    <div class="p-4 pt-6 mt-auto">
+                        <h3 class="text-gray-900 font-bold text-lg mb-2">Highlights</h3>
+                        <p class="text-gray-500 text-sm leading-snug">Mimics the same functionality of the Instagram Highlights on your website.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3: Slider -->
+                <div class="bg-white rounded-xl p-2 h-full flex flex-col group hover:scale-[1.02] transition-transform duration-300 cursor-pointer">
+                    <!-- Visual Area -->
+                    <div class="bg-gray-50 h-40 rounded-lg relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1476718406336-bb5a9690ee2b?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover" alt="Food">
+                        <!-- Overlay Text UI -->
+                        <div class="absolute top-2 left-2 right-2 flex justify-between">
+                            <div class="h-1 w-full bg-white/50 rounded flex gap-1">
+                                <div class="bg-white h-full w-1/3 rounded"></div>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-2 left-2 bg-black/50 backdrop-blur-sm px-2 py-1 rounded text-[8px] text-white">
+                            Our Latest Stories
+                        </div>
+                    </div>
+                    <!-- Content -->
+                    <div class="p-4 pt-6 mt-auto">
+                        <h3 class="text-gray-900 font-bold text-lg mb-2">Slider</h3>
+                        <p class="text-gray-500 text-sm leading-snug">Display your stories in a full slideshow layout that catches your visitors' attention.</p>
+                    </div>
+                </div>
+
+                <!-- Card 4: Gallery -->
+                <div class="bg-white rounded-xl p-2 h-full flex flex-col group hover:scale-[1.02] transition-transform duration-300 cursor-pointer">
+                    <!-- Visual Area -->
+                    <div class="bg-gray-50 h-40 rounded-lg grid grid-cols-3 gap-1 overflow-hidden p-1">
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=150&q=80" class="w-full h-full object-cover rounded-sm">
+                        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=150&q=80" class="w-full h-full object-cover rounded-sm">
+                        <img src="https://images.unsplash.com/photo-1601039641847-7857b994d704?auto=format&fit=crop&w=150&q=80" class="w-full h-full object-cover rounded-sm">
+                    </div>
+                    <!-- Content -->
+                    <div class="p-4 pt-6 mt-auto">
+                        <h3 class="text-gray-900 font-bold text-lg mb-2">Gallery</h3>
+                        <p class="text-gray-500 text-sm leading-snug">One widget with multiple stories and embed them as a full story gallery on your website.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Pagination Dots -->
+            <div class="flex justify-center items-center gap-2 mt-12">
+                <div class="w-2.5 h-2.5 bg-white rounded-full"></div>
+                <div class="w-2 h-2 bg-gray-600 rounded-full cursor-pointer hover:bg-gray-400"></div>
+                <div class="w-2 h-2 bg-gray-600 rounded-full cursor-pointer hover:bg-gray-400"></div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+     <!-- Simple Script for Mobile Menu Toggle -->
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
